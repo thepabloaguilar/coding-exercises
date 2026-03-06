@@ -1,0 +1,11 @@
+[project]
+name = "coding-exercises"
+version = "0.1.0"
+description = "Coding exercises"
+authors = [
+    {name = "Pablo Aguilar", email = "pablo.aguilar@outlook.com.br"}
+]
+license = {text = "The Unlicense"}
+readme = "README.md"
+requires-python = ">=3.14"
+dependencies = []
