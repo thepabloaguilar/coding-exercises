@@ -1,0 +1,43 @@
+from typing import Optional
+
+
+class TreeNode:
+    def __init__(
+        self,
+        val: int,
+        left: Optional[TreeNode] = None,
+        right: Optional[TreeNode] = None,
+    ) -> None:
+        self.val = val
+        self.left = left
+        self.right = right
+
+
+class Solution:
+    def countNodes(self, root: Optional[TreeNode]) -> int:
+        if not root:
+            return 0
+
+        leftDepth = self._getLeftDepth(root.left)
+        rightDepth = self._getRightDepth(root.right)
+
+        if leftDepth == rightDepth:
+            return (2 ** leftDepth) - 1
+
+        return 1 + self.countNodes(root.left) + self.countNodes(root.right)
+
+    def _getLeftDepth(self, root: Optional[TreeNode]) -> int:
+        depth = 1
+        while root:
+            depth += 1
+            root = root.left
+
+        return depth
+
+    def _getRightDepth(self, root: Optional[TreeNode]) -> int:
+        depth = 1
+        while root:
+            depth += 1
+            root = root.right
+
+        return depth
