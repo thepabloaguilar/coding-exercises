@@ -1,0 +1,15 @@
+import pytest
+
+from leetcode.product_of_array_except_self.python.solution import Solution
+
+
+@pytest.mark.parametrize(
+    ('nums', 'expected'),
+    (
+        ([1,2,3,4], [24,12,8,6]),
+        ([-1,1,0,-3,3], [0,0,9,0,0]),
+    ),
+)
+def test_base_cases(nums: list[int], expected: bool):
+    solution = Solution()
+    assert solution.productExceptSelf(nums) == expected
