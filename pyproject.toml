@@ -13,4 +13,4 @@ dependencies = [
 ]
 
 [tool.pytest]
-testpaths = ["leetcode"]
+testpaths = ["leetcode", "neetcode"]
