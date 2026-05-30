@@ -8,6 +8,8 @@ import (
 )
 
 func TestBaseCases(t *testing.T) {
+	t.Parallel()
+
 	testCases := []struct {
 		name     string
 		root     *golang.TreeNode
@@ -70,7 +72,10 @@ func TestBaseCases(t *testing.T) {
 	}
 
 	for _, tc := range testCases {
+		tc := tc
 		t.Run(tc.name, func(t *testing.T) {
+			t.Parallel()
+
 			result := golang.KthSmallest(tc.root, tc.k)
 			require.Equal(t, tc.expected, result)
 		})

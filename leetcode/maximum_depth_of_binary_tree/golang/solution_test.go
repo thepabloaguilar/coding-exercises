@@ -8,6 +8,8 @@ import (
 )
 
 func TestBaseCases(t *testing.T) {
+	t.Parallel()
+
 	testCases := []struct {
 		name     string
 		tree     *golang.TreeNode
@@ -42,7 +44,10 @@ func TestBaseCases(t *testing.T) {
 	}
 
 	for _, tc := range testCases {
+		tc := tc
 		t.Run(tc.name, func(t *testing.T) {
+			t.Parallel()
+
 			result := golang.MaxDepth(tc.tree)
 			require.Equal(t, tc.expected, result)
 		})

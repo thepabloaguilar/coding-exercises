@@ -14,6 +14,8 @@ type query struct {
 }
 
 func TestBaseCases(t *testing.T) {
+	t.Parallel()
+
 	testCases := []struct {
 		name  string
 		nums  []int
@@ -31,7 +33,10 @@ func TestBaseCases(t *testing.T) {
 	}
 
 	for _, tc := range testCases {
+		tc := tc
 		t.Run(tc.name, func(t *testing.T) {
+			t.Parallel()
+
 			numArray := golang.Constructor(tc.nums)
 			for _, q := range tc.query {
 				require.Equal(t, q.expected, numArray.SumRange(q.left, q.right))

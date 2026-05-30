@@ -14,6 +14,8 @@ type command struct {
 }
 
 func TestBaseCases(t *testing.T) {
+	t.Parallel()
+
 	testCases := []struct {
 		name     string
 		capacity int
@@ -37,7 +39,10 @@ func TestBaseCases(t *testing.T) {
 	}
 
 	for _, tc := range testCases {
+		tc := tc
 		t.Run(tc.name, func(t *testing.T) {
+			t.Parallel()
+
 			lruCache := golang.Constructor(tc.capacity)
 
 			for _, cmd := range tc.commands {

@@ -8,6 +8,8 @@ import (
 )
 
 func TestBaseCases(t *testing.T) {
+	t.Parallel()
+
 	testCases := []struct {
 		name     string
 		nums     []int
@@ -35,7 +37,10 @@ func TestBaseCases(t *testing.T) {
 	}
 
 	for _, tc := range testCases {
+		tc := tc
 		t.Run(tc.name, func(t *testing.T) {
+			t.Parallel()
+
 			golang.Rotate(tc.nums, tc.k)
 			require.Equal(t, tc.expected, tc.nums)
 		})

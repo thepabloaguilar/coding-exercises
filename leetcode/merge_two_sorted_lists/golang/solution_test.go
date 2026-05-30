@@ -8,6 +8,8 @@ import (
 )
 
 func TestBaseCases(t *testing.T) {
+	t.Parallel()
+
 	testCases := []struct {
 		name     string
 		l1       *golang.ListNode
@@ -35,7 +37,10 @@ func TestBaseCases(t *testing.T) {
 	}
 
 	for _, tc := range testCases {
+		tc := tc
 		t.Run(tc.name, func(t *testing.T) {
+			t.Parallel()
+
 			result := golang.MergeTwoLists(tc.l1, tc.l2)
 			require.Equal(t, listNodeToSlice(tc.expected), listNodeToSlice(result))
 		})

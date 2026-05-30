@@ -8,6 +8,8 @@ import (
 )
 
 func TestBaseCases(t *testing.T) {
+	t.Parallel()
+
 	testCases := []struct {
 		name      string
 		buildList func() *golang.ListNode
@@ -51,7 +53,10 @@ func TestBaseCases(t *testing.T) {
 	}
 
 	for _, tc := range testCases {
+		tc := tc
 		t.Run(tc.name, func(t *testing.T) {
+			t.Parallel()
+
 			result := golang.HasCycle(tc.buildList())
 			require.Equal(t, tc.expected, result)
 		})

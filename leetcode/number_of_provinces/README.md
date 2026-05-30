@@ -1,6 +1,6 @@
 # Number of Provinces
 
-[Leetcode link](leetcode.com/problems/number-of-provinces)
+[Leetcode link](https://leetcode.com/problems/number-of-provinces)
 
 Esse desafio poderia ter sido resolvido utilizando três técnicas diferentes:
 - Deep First Search (DFS)

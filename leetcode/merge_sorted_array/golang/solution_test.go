@@ -8,6 +8,8 @@ import (
 )
 
 func TestBaseCases(t *testing.T) {
+	t.Parallel()
+
 	testCases := []struct {
 		name     string
 		nums1    []int
@@ -43,7 +45,10 @@ func TestBaseCases(t *testing.T) {
 	}
 
 	for _, tc := range testCases {
+		tc := tc
 		t.Run(tc.name, func(t *testing.T) {
+			t.Parallel()
+
 			golang.Merge(tc.nums1, tc.m, tc.nums2, tc.n)
 			require.Equal(t, tc.expected, tc.nums1)
 		})

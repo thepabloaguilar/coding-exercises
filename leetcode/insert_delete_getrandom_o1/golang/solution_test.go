@@ -14,6 +14,8 @@ type command struct {
 }
 
 func TestBaseCases(t *testing.T) {
+	t.Parallel()
+
 	testCases := []struct {
 		name     string
 		commands []command
@@ -41,6 +43,8 @@ func TestBaseCases(t *testing.T) {
 
 	for _, tc := range testCases {
 		t.Run(tc.name, func(t *testing.T) {
+			t.Parallel()
+
 			randomizedSet := golang.Constructor()
 
 			for _, cmd := range tc.commands {
